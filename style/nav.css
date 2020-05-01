@@ -1,0 +1,60 @@
+body{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+nav{
+display: grid;
+background-color: #1F201F;
+grid-template-columns: repeat(6, auto) 1fr;
+position: relative;
+width: 100%;
+top: 0;
+left: 0;
+margin-bottom: 0;
+z-index: 1000;
+}
+nav a{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+nav a:hover{
+  background-color: #404346;
+}
+
+
+.active{
+    background-color: #141415;
+    pointer-events: none;
+}
+
+.active:hover{
+ pointer-events: none;
+}
+@media (max-width: 900px) {
+  nav {
+    position: relative;
+  }
+
+  nav a {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    grid-template-columns: 1fr;
+    position: relative;
+  }
+
+  nav a {
+    padding: 10px;
+  }
+  body{
+    font-family: serif;
+  }
+}

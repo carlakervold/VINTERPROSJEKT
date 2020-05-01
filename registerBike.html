@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Submit Bike - Bikeshop</title>
+    <link rel="stylesheet" href="style/nav.css">
+    <link rel="stylesheet" href="style/registerBike.css">
+    <link rel="stylesheet" href="style/generic.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyC8eErsz2Roc4R7M7uknF255JVgE_LrDqk",
+        authDomain: "decadeinmusic.firebaseapp.com",
+        databaseURL: "https://decadeinmusic.firebaseio.com",
+        projectId: "decadeinmusic",
+        storageBucket: "decadeinmusic.appspot.com",
+        messagingSenderId: "996019959092",
+        appId: "1:996019959092:web:c9c6ff45d0efcb4f02a161"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+
+  <body>
+<header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="buy.html">Buy Bikes</a>
+  <a href="#">Sell Bikes</a>
+  <a href="#">Test</a>
+  <a href="#">Test</a>
+</nav>
+</header>
+<main>
+
+<section class="registerBikes">
+
+  <form class="bikeForm" onsubmit="sendBike(event)" id="form" action="index.html" method="post">
+
+    <section>
+      <label class="col-25" for="inpSeller">Seller</label>
+      <input id="inpSeller" type="text" placeholder="Name Lastname" name="" value="">
+      </section>
+
+<section>
+  <label class="col-25" for="inpName">Bike Name</label>
+</section>
+<section class="col-75">
+  <select id="inpName" name="Name">
+<option value="EXC 125">EXC 125</option>
+<option value="EXC 450">EXC 450</option>
+<option value="MT-125">MT-125</option>
+<option value="MT-03">MT-03</option>
+<option value="MT-07">MT-07</option>
+<option value="MT-09">MT-09</option>
+<option value="MT-10">MT-10</option>
+<option value="YZF R125">YZF-R125</option>
+<option value="YZF R3">YZF R3</option>
+<option value="YZF R6">YZF R6</option>
+<option value="YZF R1">YZF R1</option>
+<option value="YZF R1 (60th Anniversary)">YZF R1 (60th Anniversary)</option>
+<option value="YZF R1M">YZF R1M</option>
+<option value="NIKEN">NIKEN</option>
+<option value="Tracer 900 GT">Tracer 900GT</option>
+<option value=""></option>
+<option value="">Honda</option>
+<option value=""></option>
+<option value="Hayabusa">Hayabusa</option>
+<option value="Fireblade">Fireblade</option>
+<option value="Grom">Grom</option>
+<option value="CBR 125">CBR 125R</option>
+<option value="CB125R">CB125R</option>
+<option value="CB125F">CB125F</option>
+<option value="CB125">CB125</option>
+<option value="CB500R">CB500R</option>
+<option value="CBR500R">CBR500R</option>
+<option value="CBR650R">CBR650R</option>
+<option value="CBR650F">CBR650F</option>
+<option value="CBR1000RR">CBR1000RR</option>
+<option value="Goldwing">Goldwing</option>
+<option value="Goldwing Trike">Goldwing Trike</option>
+<option value=""></option>
+<option value="">Suzuki</option>
+<option value=""></option>
+<option value="GSX-R125R">GSX-R125R</option>
+<option value="GSX-R250R">GSX-R250R</option>
+<option value="GSX-R250R ABS">GSX-R250R ABS</option>
+<option value="GSX-R600">GSX-R600</option>
+<option value="GSX-R750">GSX-R750</option>
+<option value="GSX-R1000">GSX-R1000</option>
+<option value="GSX-R1000R">GSX-R1000R</option>
+<option value="Boulevard M109R">Boulevard M109R</option>
+<option value="DR-Z400SM">DR-Z400SM</option>
+<option value="V-STROM 1050">V-STROM 1050</option>
+<option value=""></option>
+<option value="">Kawasaki</option>
+<option value=""></option>
+<option value="NINJA 125">NINJA 125</option>
+<option value="NINJA 125 KRT EDITION">NINJA 125 KRT EDITION</option>
+<option value="NINJA 250">NINJA 250</option>
+<option value="NINJA 300">NINJA 300</option>
+<option value="NINJA 400">NINJA 400</option>
+<option value="NINJA 650">NINJA 650</option>
+<option value="NINJA 1000SX">NINJA 1000SX</option>
+<option value="NINJA 1000">NINJA 1000</option>
+<option value="NINJA ZX-25R">NINJA ZX-25R</option>
+<option value="NINJA ZX-6R">NINJA ZX-6R</option>
+<option value="NINJA ZX-10R">NINJA ZX-10R</option>
+<option value="NINJA ZX-10RR">NINJA ZX10RR</option>
+<option value="NINJA ZX-14R">NINJA ZX-14R</option>
+<option value="NINJA H2SX SE+">NINJA H2SX SE+</option>
+<option value="NINJA H2">NINJA H2</option>
+<option value="NINJA H2 CARBON">NINJA H2 CARBON</option>
+<option value="NINJA H2R">NINJA H2R</option>
+<option value="Z125">Z125</option>
+<option value="Z400">Z400</option>
+<option value="Z650">Z650</option>
+<option value="Z900">Z900</option>
+<option value="Z H2">Z H2</option>
+<option value=""></option>
+<option value="">KTM</option>
+<option value=""></option>
+<option value="DUKE 125">DUKE 125</option>
+<option value="DUKE 390">DUKE 390</option>
+<option value="DUKE 790">DUKE 790</option>
+<option value="DUKE 890">DUKE 890</option>
+<option value="SUPERDUKE 1290R">SUPERDUKE</option>
+<option value="RC 125">RC125</option>
+<option value="RC 390">RC 390</option>
+<option value="1190 RC8R">1190 RC8R</option>
+<option value=""></option>
+<option value="">BMW</option>
+<option value=""></option>
+<option value="S1000RR">S1000RR</option>
+<option value="R1200GS">R1200GS</option>
+<option value="G310R">G310R</option>
+<option value=""></option>
+<option value="">Ducati</option>
+<option value=""></option>
+<option value="HYPERMOTARD">HYPERMOTARD</option>
+<option value="PANIGALE V4">PANIGALE V4</option>
+<option value="DESMOSEDICI">DESMOSEDICI</option>
+<option value="DIAVEL">DIAVEL</option>
+<option value="SUPERSPORT">SUPERSPORT</option>
+<option value="SUPERLEGGERA">SUPERLEGGERA</option>
+<option value=""></option>
+<option value="">Aprilia</option>
+<option value=""></option>
+<option value="RSV4">RSV4</option>
+<option value="RS 125">RS 125</option>
+<option value=""></option>
+<option value="">Harley Davidson</option>
+<option value=""></option>
+<option value="VCO Tri Glide">CVO Tri Glide</option>
+<option value="Tri Glide">Tri Glide</option>
+<option value="Freewheler">Freewheeler</option>
+<option value="Streetglide">Streetglide</option>
+<option value="Fatboy">Fatboy</option>
+<option value=""></option>
+<option value="">Triumph</option>
+<option value=""></option>
+<option value="Daytona 650R">Daytona 650R</option>
+<option value="Scrambler 1200">Scrambler 1200</option>
+
+  </select>
+</section>
+
+<section>
+    <label class="col-25" for="inpBrand">Bike Brand</label>
+</section>
+<section class="col-75">
+  <select id="inpBrand" name="Brand">
+<option value="Yamaha">Yamaha</option>
+<option value="KTM">KTM</option>
+<option value="Kawasaki">Kawasaki</option>
+<option value="BMW">BMW</option>
+<option value="Ducati">Ducati</option>
+<option value="Honda">Honda</option>
+<option value="Suzuki">Suzuki</option>
+<option value="Aprilia">Aprilia</option>
+<option value="Harley Davidson">Harley Davidson</option>
+<option value="Triumph">Triumph</option>
+  </select>
+</section>
+
+<section>
+    <label class="col-25" for="inpType">Bike type</label>
+</section>
+<section class="col-75">
+  <select id="inpType" name="Type">
+<option value="Sports Bike">Sports bike</option>
+<option value="Super sport">Super sport</option>
+<option value="Cruiser">Cruiser</option>
+<option value="Chopper">Chopper</option>
+<option value="Naked bike">Naked bike</option>
+<option value="Dirt bike">Dirt bike</option>
+<option value="Race bike (Not EC approved)">Race bike (Not EC approved)</option>
+<option value="Cafe Racer">Cafe Racer</option>
+  </select>
+</section>
+
+<section>
+    <label class="col-25" for="inpState">Bike condition</label>
+</section>
+<section class="col-75">
+  <select id="inpState" name="State">
+<option value="New">New</option>
+<option value="Used">Used</option>
+  </select>
+
+</section>
+<section>
+  <label class="col-25" for="inpYear">Year of release</label>
+</section>
+
+<section>
+    <input id="inpYear" type="number" placeholder="2015" name="" value="">
+</section>
+
+<section>
+  <label class="col-25" for="inpCC">Cubiccentimeters</label>
+  <input id="inpCC" type="number" placeholder="1000" name="" value="">
+</section>
+
+<section>
+  <label class="col-25" for="inpHP">HP</label>
+  <input id="inpHP" type="number" placeholder="206" name="" value="">
+</section>
+
+<section>
+  <label class="col-25" for="inp100">0-100km/t time</label>
+  <input id="inp100" type="number" placeholder="2,3" name="" value="">
+</section>
+
+<section>
+  <label class="col-25" for="inpPlate">Plate Number</label>
+  <input id="inpPlate" type="text" placeholder="AA1234" name="" value="">
+  </section>
+<section>
+  <label class="col-25" for="inpKm">Kilometers</label>
+  <input id="inpKm" type="number" placeholder="14342" name="" value="">
+  </section>
+<section>
+  <label class="col-25" for="inpPrice">Price (NOK)</label>
+  <input id="inpPrice" type="number" placeholder="45000" name="" value="">
+  </section>
+
+  <section>
+    <label class="col-25" for="inpPicture">Picture of your bike</label>
+    <input id="inpPicture" type="text" placeholder="https://eks.com/albumcover.jpg" name="" value="">
+    </section>
+
+  <section>
+    <label class="col-25" for="inpPicture2">2. Picture of your bike</label>
+    <input id="inpPicture2" type="text" placeholder="https://eks.com/albumcover.jpg" name="" value="">
+    </section>
+
+  <section>
+    <label class="col-25" for="inpPicture3">3. Picture of your bike</label>
+    <input id="inpPicture3" type="text" placeholder="https://eks.com/albumcover.jpg" name="" value="">
+    </section>
+
+
+    <div class="col-75">
+      <label for="col-75">Description of your bike</label>
+  <textarea id="inpInfo" name="Extra information" placeholder="Write something.." style="height:200px" style="width:100%"></textarea>
+   </div>
+<section>
+  <button type="submit" name="button">Submit bike</button>
+  </section>
+  </form>
+</section>
+
+<script src="java/registerBike.js" charset="utf-8"></script>
+
+
+</main>
+<footer></footer>
+
+
+  </body>
+</html>

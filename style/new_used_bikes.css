@@ -1,0 +1,48 @@
+h1{
+color: black;
+font-size: 3vw;
+margin-top: 100px;
+text-align: center;
+letter-spacing: 7px;
+font-style: italic;
+font-weight: lighter;
+}
+#secbikes{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+}
+#secbikes img{
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.5s;
+  transform: scale(1.05);
+  filter: contrast(1.1);
+}
+#secbikes img:hover{
+  transition: 0.4s;
+transform: scale(1.07);
+}
+h3, p{
+  text-align: center;
+}
+h3{
+  font-size: 2.5vw;
+  font-weight: lighter;
+  letter-spacing: 7px;
+}
+p{
+  font-size: 20px;
+}
+#bikegrid{
+  background-color: #EDECEE;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 2s;
+}
+
+#bikegrid:hover{
+  transform: scale(1.03);
+}
