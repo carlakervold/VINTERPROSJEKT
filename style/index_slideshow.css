@@ -18,10 +18,7 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* Caption text */
-.text {
 
-}
 .biketype{
   font-size: 3.5vw;
   text-align: center;
@@ -85,5 +82,21 @@
 
   to {
     opacity: 1
+  }
+}
+@media (max-width: 900px){
+
+}
+
+@media (max-width: 600px){
+
+  .slideshow_grid{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .desc{
+    font-size: 40px;
+  }
+  .biketype{
+    font-size: 20px;
   }
 }

@@ -1,10 +1,11 @@
 
 const db = firebase.firestore();
 const bikes = db.collection("bikes");
+const auth = firebase.auth();
 
 const url = new URL(window.location.href);
 const id = url.searchParams.get("id");
-
+const shoppingCart = db.collection("bikesInCart")
 
 const showBike = async (id) => {
   const svar = await bikes.doc(id).get();
@@ -27,10 +28,10 @@ const lagHTML = (bikes) => {
   <a href="biketype.html?type=${bikes.type}"><p>Type: ${bikes.type}</p></a>
   <p>State: ${bikes.state}</p>
   <p>Seller: ${bikes.seller}</p>
-
   </div>
 
     `;
+    //pictures in slideshow
     picture1.innerHTML +=`
     <img src="${bikes.picture}" style="width:100%">
           <div class="text">${bikes.bike_name}</div>`;
@@ -52,6 +53,8 @@ const lagHTML = (bikes) => {
                       <h3 id="bikename">${bikes.bike_name} ${bikes.year}</h3>`;
 
 
+
+
 }
 
 
@@ -68,6 +71,20 @@ function plusSlides(n) {
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
+//sjekke om brukeren er logget inn
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    buyBtn.innerHTML =`
+    <button onclick="addToCart('${id}')">Order</button>`;
+
+  } else {
+    // No user is signed in.
+    alert("You must be signed in to order bikes");
+    buyBtn.innerHTML =`
+    <a href="../login/login.html"> <button> Order</button> </a>`;
+  }
+});
 
 
 
@@ -85,4 +102,24 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
+}
+//add to shoppingcart function linked to button
+const addToCart = async (id) => {
+  var firebaseUser = firebase.auth().currentUser;
+  console.log(firebaseUser.displayName);
+  if (firebaseUser.displayName == null){
+    alert("You must create a username");
+
+  }
+    else await shoppingCart.add({
+        bikesId: id,
+        f_uid: firebaseUser.uid,
+        email: firebaseUser.email,
+        name: firebaseUser.displayName,
+        time: firebase.firestore.FieldValue.serverTimestamp(),
+
+        
+    }).then(alert("Bike was added to shoppingcart"));
+
+    
 }

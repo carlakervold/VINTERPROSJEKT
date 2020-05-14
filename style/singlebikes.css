@@ -1,7 +1,6 @@
 * {box-sizing:border-box}
 
 main{
-background-color: #EDE9E2;
 width: 85%;
 margin-left: auto;
 margin-right: auto;
@@ -103,7 +102,7 @@ padding: 10px;
 .single_bike_grid{
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   width: 85%;
   margin-top: 70px;
   margin-left: auto;
@@ -120,21 +119,105 @@ padding: 10px;
   text-align: center;
 
 }
+#bikegrid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: solid 1px #e57373;
+}
 #bikegrid p{
   padding: 3px;
   margin-left: 15px;
+  text-align: center;
+}
+#bikegrid a{
+  color: #e57373;
 }
 #bikedescription{
   width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#desc_text{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+  color: #e57373;
+  font-size: 2vw;
+  border: 0.1vw solid #e57373;
+  border-radius: 0.2vw;
+  transition: 250ms;
+  padding: 2%;
+}
+
+#desc_text:hover{
+  border: 0.1vw solid transparent;
+  background-color: #e57373;
+  color: white;
+
 }
 h4{
   font-size: 3vw;
   text-align: center;
 }
-#desc_text{
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1vw;
+
+#buyBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#buyBtn button{
+  width: 15vw;
+  height: 3vw;
+  background-color: transparent;
+  color: #4caf50;
+  font-size: 2vw;
+  border: 0.1vw solid #4caf50;
+  border-radius: 0.2vw;
+  transition: 250ms;
+}
+#buyBtn button:hover{
+  border: 0.1vw solid transparent;
+  background-color: #4caf50;
+  color: white;
+}
+@media (max-width: 900px){
+  .single_bike_grid{
+
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+}
+
+@media (max-width: 600px){
+.mySlides img{
+  width: 100%;
+}
+.single_bike_grid{
+
+  grid-template-columns: repeat(1, 1fr);
+}
+#bikegrid{
+  grid-template-columns: repeat(1, 1fr);
+}
+#bikedescription p{
+  font-size: 20px;
   text-align: center;
+  line-break: strict;
+}
+#buyBtn button{
+  width: 120px;
+  height: 35px;
+  background-color: transparent;
+  color: #4caf50;
+  font-size: 30px;
+  border: 0.1vw solid #4caf50;
+  border-radius: 0.2vw;
+  transition: 250ms;
+}
+#buyBtn button:hover{
+  border: 0.1vw solid transparent;
+  background-color: #4caf50;
+  color: white;
+}
 }

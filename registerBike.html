@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Submit Bike - Bikeshop</title>
     <link rel="stylesheet" href="style/nav.css">
     <link rel="stylesheet" href="style/registerBike.css">
@@ -11,7 +13,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
 
@@ -36,9 +38,8 @@
 <nav>
   <a href="index.html">Home</a>
   <a href="buy.html">Buy Bikes</a>
-  <a href="#">Sell Bikes</a>
-  <a href="#">Test</a>
-  <a href="#">Test</a>
+  <a class="active" href="registerBike.html">Sell Bikes</a>
+  <a href="html/login/login.html">My Account</a>
 </nav>
 </header>
 <main>
@@ -47,15 +48,16 @@
 
   <form class="bikeForm" onsubmit="sendBike(event)" id="form" action="index.html" method="post">
 
-    <section>
-      <label class="col-25" for="inpSeller">Seller</label>
+
+    <section class="input-container">
       <input id="inpSeller" type="text" placeholder="Name Lastname" name="" value="">
       </section>
+      <section>  
+        <label class="col-25" for="inpSeller">Seller</label>
+        </section>
 
-<section>
-  <label class="col-25" for="inpName">Bike Name</label>
-</section>
-<section class="col-75">
+
+<section  class="input-container">
   <select id="inpName" name="Name">
 <option value="EXC 125">EXC 125</option>
 <option value="EXC 450">EXC 450</option>
@@ -174,11 +176,12 @@
 
   </select>
 </section>
-
 <section>
-    <label class="col-25" for="inpBrand">Bike Brand</label>
+  <label class="col-25" for="inpName">Bike Name</label>
 </section>
-<section class="col-75">
+
+
+<section class=" input-container">
   <select id="inpBrand" name="Brand">
 <option value="Yamaha">Yamaha</option>
 <option value="KTM">KTM</option>
@@ -192,11 +195,12 @@
 <option value="Triumph">Triumph</option>
   </select>
 </section>
-
 <section>
-    <label class="col-25" for="inpType">Bike type</label>
+  <label class="col-25" for="inpBrand">Bike Brand</label>
 </section>
-<section class="col-75">
+
+
+<section class="input-container">
   <select id="inpType" name="Type">
 <option value="Sports Bike">Sports bike</option>
 <option value="Super sport">Super sport</option>
@@ -208,73 +212,115 @@
 <option value="Cafe Racer">Cafe Racer</option>
   </select>
 </section>
-
 <section>
-    <label class="col-25" for="inpState">Bike condition</label>
+  <label class="col-25" for="inpType">Bike type</label>
 </section>
-<section class="col-75">
+
+
+<section class="input-container">
   <select id="inpState" name="State">
 <option value="New">New</option>
 <option value="Used">Used</option>
   </select>
+</section>
+<section>
+  <label class="col-25" for="inpState">Bike condition</label>
+</section>
 
+
+<section class="input-container">
+    <input id="inpYear" type="number" placeholder="2015" name="" value="">
 </section>
 <section>
   <label class="col-25" for="inpYear">Year of release</label>
 </section>
 
-<section>
-    <input id="inpYear" type="number" placeholder="2015" name="" value="">
-</section>
 
-<section>
-  <label class="col-25" for="inpCC">Cubiccentimeters</label>
+
+<section class=" input-container ">
   <input id="inpCC" type="number" placeholder="1000" name="" value="">
 </section>
-
 <section>
-  <label class="col-25" for="inpHP">HP</label>
+  <label class="col-25" for="inpCC">Cubiccentimeters</label>
+</section>
+
+
+<section class=" input-container ">
   <input id="inpHP" type="number" placeholder="206" name="" value="">
 </section>
-
 <section>
-  <label class="col-25" for="inp100">0-100km/t time</label>
-  <input id="inp100" type="number" placeholder="2,3" name="" value="">
+  <label class="col-25" for="inpHP">HP</label>
 </section>
 
+
+
+ <section class=" input-container">
+  <input id="inp100" type="number" placeholder="2,3" name="" value="">
+</section>
 <section>
-  <label class="col-25" for="inpPlate">Plate Number</label>
+  <label class="col-25" for="inp100">0-100km/t time</label>
+ </section>
+
+
+
+<section class=" input-container">
   <input id="inpPlate" type="text" placeholder="AA1234" name="" value="">
   </section>
-<section>
-  <label class="col-25" for="inpKm">Kilometers</label>
+  <section>
+    <label class="col-25" for="inpPlate">Plate Number</label>
+  </section>
+
+
+
+<section class=" input-container">
   <input id="inpKm" type="number" placeholder="14342" name="" value="">
   </section>
-<section>
-  <label class="col-25" for="inpPrice">Price (NOK)</label>
-  <input id="inpPrice" type="number" placeholder="45000" name="" value="">
+  <section>
+    <label class="col-25" for="inpKm">Kilometers</label>
   </section>
 
+
+<section class=" input-container">
+  <input id="inpPrice" type="number" placeholder="45000" name="" value="">
+  </section>
   <section>
-    <label class="col-25" for="inpPicture">Picture of your bike</label>
+    <label class="col-25" for="inpPrice">Price (NOK)</label>
+  </section>
+
+
+  <section class=" input-container">
     <input id="inpPicture" type="text" placeholder="https://eks.com/albumcover.jpg" name="" value="">
     </section>
+    <section>
+      <label class="col-25" for="inpPicture">Picture of your bike</label>
+    </section>
 
-  <section>
-    <label class="col-25" for="inpPicture2">2. Picture of your bike</label>
+
+  <section class=" input-container">
     <input id="inpPicture2" type="text" placeholder="https://eks.com/albumcover.jpg" name="" value="">
     </section>
+    <section>
+      <label class="col-25" for="inpPicture2">2. Picture of your bike</label>
+    </section>
 
-  <section>
-    <label class="col-25" for="inpPicture3">3. Picture of your bike</label>
+ 
+ <section class=" input-container">
     <input id="inpPicture3" type="text" placeholder="https://eks.com/albumcover.jpg" name="" value="">
     </section>
+    <section>
+      <label class="col-25" for="inpPicture3">3. Picture of your bike</label>
+   </section>
 
 
     <div class="col-75">
+      <section>
       <label for="col-75">Description of your bike</label>
+    </section>
+    <section>
   <textarea id="inpInfo" name="Extra information" placeholder="Write something.." style="height:200px" style="width:100%"></textarea>
-   </div>
+</section>
+</div>
+
 <section>
   <button type="submit" name="button">Submit bike</button>
   </section>

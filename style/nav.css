@@ -4,9 +4,10 @@ body{
 }
 
 nav{
-display: grid;
-background-color: #1F201F;
-grid-template-columns: repeat(6, auto) 1fr;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #f44336;
 position: relative;
 width: 100%;
 top: 0;
@@ -18,23 +19,19 @@ nav a{
   text-decoration: none;
   color: white;
   font-weight: bold;
-  padding: 30px;
+  padding: 1.5vw;
   font-family: 'Roboto', sans-serif;
 }
 
 nav a:hover{
-  background-color: #404346;
+  background-color: #e57373;
 }
 
 
 .active{
-    background-color: #141415;
-    pointer-events: none;
+    background-color: #e57373;
 }
 
-.active:hover{
- pointer-events: none;
-}
 @media (max-width: 900px) {
   nav {
     position: relative;
@@ -47,14 +44,20 @@ nav a:hover{
 
 @media (max-width: 600px) {
   nav {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     position: relative;
   }
 
   nav a {
     padding: 10px;
+    width: 100%;
+    text-align: center;
   }
   body{
     font-family: serif;
   }
+}
+
+a{
+  color: #e57373;
 }

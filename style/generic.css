@@ -74,3 +74,153 @@ main {
     opacity: 1;
   }
 }
+
+/* input / buttons design */
+
+.input-container{
+  position: relative;
+  border-bottom: 0.05vw  solid lightgray;
+  color: black;
+  text-decoration: none;
+  font-size: 5vw;
+  height: 5vw;
+  width: 20vw;
+  padding: 1vw;
+  margin: 1vw;
+  text-align: center;
+}
+
+.input-container input{
+  border: 0;
+  width: 20vw;
+  outline: none;
+  position: absolute;
+  bottom: 0;
+  background-color: transparent;
+  left: 0;
+  font-size: 1.4vw;
+}
+
+.input-container input::placeholder{
+  text-align: center;
+  font-size: 1.4vw;
+}
+
+.input-container:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1vw;
+  bottom: -0.05vw;
+  left: 0;
+  background-color: #F44336;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.input-container:hover:before, .input-container:focus-within:before{
+  visibility: visible;
+  transform: scaleX(1);
+
+}
+
+
+
+.input-container select{
+  border: 0;
+  width: 20vw;
+  outline: none;
+  position: absolute;
+  bottom: 0;
+  background-color: transparent;
+  left: 0;
+  font-size: 1.4vw;
+}
+#resetFilters{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 15vw;
+  height: 3vw;
+  background-color: transparent;
+  color: #e57373;
+  font-size: 2vw;
+  border: 0.1vw solid #e57373;
+  border-radius: 0.2vw;
+  transition: 250ms;
+}
+
+#resetFilters:hover{
+  border: 0.1vw solid transparent;
+  background-color: #e57373;
+  color: white;
+}
+@media (max-width: 900px){
+
+
+}
+
+@media (max-width: 600px){
+.input-container{
+  font-size: 30px;
+  height: 30px;
+  width: 120px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.input-container input{
+  border: 0;
+  width: 120px;
+  outline: none;
+  position: absolute;
+  bottom: 0;
+  background-color: transparent;
+  left: 0;
+  font-size: 25px;
+}
+
+.input-container input::placeholder{
+  font-size: 20px;
+}
+
+.input-container:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1vw;
+  bottom: -0.05vw;
+  left: 0;
+  background-color: #F44336;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.input-container:hover:before, .input-container:focus-within:before{
+  visibility: visible;
+  transform: scaleX(1);
+
+}
+
+
+
+.input-container select{
+  border: 0;
+  width: 120px;
+  outline: none;
+  position: absolute;
+  bottom: 0;
+  background-color: transparent;
+  left: 0;
+  font-size: 15px;
+}
+
+#resetFilters{
+  width: 120px;
+  height: 20px;
+  font-size: 16px;
+}
+
+}

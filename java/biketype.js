@@ -5,6 +5,15 @@ const url = new URL(window.location.href);
 const type = url.searchParams.get("type");
 const id = url.searchParams.get("id"); 
 
+const selSort = document.querySelector("#selSort");
+
+const sortBikes = async () => {
+  secBikes.innerHTML = ``; // deletes currently shown bikes
+  const answer = await bikes.orderBy("price", selSort.value).where("type", "==", type).get();
+  for(const bikes of answer.docs){
+      lagHTML(bikes.id, bikes.data());
+  }
+}
 
 const showBike = async () => {
   const svar = await bikes.where("type", "==", type).get();

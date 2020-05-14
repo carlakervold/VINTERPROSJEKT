@@ -1,79 +1,127 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Blank - Bikeshop</title>
-    <link rel="stylesheet" href="../../style/login.css">
-    <link rel="stylesheet" href="../../style/nav.css">
-    <link rel="stylesheet" href="../../style/generic.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+<head>
+  <meta charset="utf-8">
+  <title>Login / Signup - Bikeshop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+  <link rel="stylesheet" href="../../style/login.css">
+  <link rel="stylesheet" href="../../style/nav.css">
+  <link rel="stylesheet" href="../../style/generic.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
 
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyC8eErsz2Roc4R7M7uknF255JVgE_LrDqk",
-        authDomain: "decadeinmusic.firebaseapp.com",
-        databaseURL: "https://decadeinmusic.firebaseio.com",
-        projectId: "decadeinmusic",
-        storageBucket: "decadeinmusic.appspot.com",
-        messagingSenderId: "996019959092",
-        appId: "1:996019959092:web:c9c6ff45d0efcb4f02a161"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-    </script>
-  </head>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyC8eErsz2Roc4R7M7uknF255JVgE_LrDqk",
+      authDomain: "decadeinmusic.firebaseapp.com",
+      databaseURL: "https://decadeinmusic.firebaseio.com",
+      projectId: "decadeinmusic",
+      storageBucket: "decadeinmusic.appspot.com",
+      messagingSenderId: "996019959092",
+      appId: "1:996019959092:web:c9c6ff45d0efcb4f02a161"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
 
-  <body>
-<header>
-<nav>
-  <a  class="active" href="../../index.html">Home</a>
-  <a href="../../buy.html">Buy</a>
-  <a href="../../sell.html">Sell</a>
-  <a href="#">Test</a>
-  <a href="#">Test</a>
-</nav>
-</header>
-<main>
+<body>
+  <header>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../../buy.html">Buy Bikes</a>
+      <a href="../../registerBike.html">Sell Bikes</a>
+      <a  class="active" href="login.html">My Account</a>
+    </nav>
+  </header>
+  <main>
+    <section id="loginStatus" class="headTxt">Login / Signup here!</section>
+    <div class="container">
+      <section id="usergreie">
+      </section>
+      <div id="hide_after_login" class="">
+        <div class="flex">
+          <div class="input_grid">
+        <section class="input">
+          <input id="txtEmail" type="email" placeholder="Email">
+        </section>
+        <section class="input">
+          <input id="txtPassword" type="password" placeholder="Password">
+        </section>
+      </div>
+      </div>
+        <section class="centerBtn">
+          <button id="btnLogin" class="btn btn-action">
+            Log In
+          </button>
 
-<div class="container">
-<input id="txtEmail" type="email" placeholder="Email">
+          <button id="btnSignUp" class="btn btn-secondary">
+            Sign Up
+          </button>
+        </section>
+      </div>
 
-<input id="txtPassword" type="password" placeholder="Password" >
+    </div>
 
-<button id="btnLogin" class="btn btn-action">
-    Log In
-</button>
+  
+    <div id="displayhide" class="">
 
-<button id="btnSignUp" class="btn btn-secondary">
-    Sign Up
-</button>
+      <section class="container">
+        <section class="flex">
+          <section class="input_grid">
+      <section class="input">
+        <input id="inpDisplay"type="displayName" placeholder="Username">
+      </section>
+      <button id="setDisplayNameBtn" class="btn">
+        Change username
+      </button>
+    </section>
+    </section>
+    </section>
+ 
+  
+    </div>
 
-<button id="btnLogOut" class="btn btn-action hide">
-    Log Out
-</button>
+
+    <div>
+      <section id="cartHeader""></section>
 
 
+      <section id="secCart">
 
-</div>
+      </section>
 
 
-</main>
-<footer></footer>
+      <section id="divtotalPrice">
 
-<script type="text/javascript">
-//referanser til Databasen
-const db = firebase.firestore();
+      </section>
+      <section id="buyBtn">
 
-</script>
-<script src="../../java/login.js"></script>
-  </body>
+      </section>
+
+    </div>
+    <button id="btnLogout" class="btn btn-action hide">
+      Log Out
+    </button> 
+  </section>
+
+  </main>
+  <footer></footer>
+
+  <script type="text/javascript">
+    //referanser til Databasen
+  </script>
+  <script src="../../java/login.js"></script>
+</body>
+
 </html>

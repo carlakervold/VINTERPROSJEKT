@@ -5,6 +5,19 @@ const url = new URL(window.location.href);
 const brand = url.searchParams.get("brand");
 const id = url.searchParams.get("id"); 
 
+//sort bikes after price 
+const selSort = document.querySelector("#selSort");
+
+const sortBikes = async () => {
+  secBikes.innerHTML = ``; // deletes currently shown bikes
+  const answer = await bikes.orderBy("price", selSort.value).where("brand", "==", brand).get();
+  for(const bikes of answer.docs){
+      lagHTML(bikes.id, bikes.data());
+  }
+}
+
+
+
 
 const showBike = async () => {
   const svar = await bikes.where("brand", "==", brand).get();
@@ -20,8 +33,8 @@ const lagHTML = (id, bikes) => {
   <section id="secBikesGrid">
   <a href="singlebike.html?id=${id}"> <h3>${bikes.bike_name} ${bikes.year}</h3>
   <img src=${bikes.picture} alt="Picture of ${bikes.bike_name}">
-  <a href="html/buy/type.html?type=${bikes.type}"><p>Type: ${bikes.type}</p>
-  <a href="html/buy/bikebrand.html?brand=${bikes.brand}"><p>Brand: ${bikes.brand}</p> </a>
+  <a href="biketype.html?type=${bikes.type}"><p>Type: ${bikes.type}</p>
+  <a href="bikebrand.html?brand=${bikes.brand}"><p>Brand: ${bikes.brand}</p> </a>
   <p>State: ${bikes.state}</p>
   <p>Year: ${bikes.year}</p>
   <p>Seller: ${bikes.seller}</p>
@@ -32,3 +45,4 @@ const lagHTML = (id, bikes) => {
 brandHeader.innerHTML =`
 <h1>ALL OUR BIKES FROM ${bikes.brand}
 `;}
+

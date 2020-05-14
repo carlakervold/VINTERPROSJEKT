@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy bikes - Bikeshop</title>
     <link rel="stylesheet" href="style/buy.css">
     <link rel="stylesheet" href="style/nav.css">
@@ -10,7 +11,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
 
@@ -36,8 +37,7 @@
   <a  href="index.html">Home</a>
   <a  class="active" href="buy.html">Buy Bikes</a>
   <a href="registerBike.html">Sell Bikes</a>
-  <a href="#">Test</a>
-  <a href="#">Test</a>
+  <a href="html/login/login.html">My Account</a>
 </nav>
 </header>
 <main>
@@ -58,6 +58,18 @@
 <section>
   <h1 id="typeDesc">ALL BIKES</h1>
 </section>
+
+<div>
+<section class="input-container" style="display: block; margin-left: auto; margin-right: auto;">
+<select name="" id="selSort" onchange="sortBikes()">
+<option value="asc">Price low to high</option>
+<option value="desc">Price high to low</option>
+</select>
+</section>
+<button id="resetFilters" onclick="loadBikes()">Reset Filters</button>
+
+</div>
+
 <section id="secNewBikes">
 
 </section>
@@ -68,5 +80,6 @@
 
 </footer>
 <script src="java/buy.js" charset="utf-8"></script>
+<script src="java/sort.js"></script>
   </body>
 </html>

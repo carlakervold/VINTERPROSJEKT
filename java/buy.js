@@ -28,7 +28,7 @@ const lagHTML = (id, bikes) => {
             <p>Year: ${bikes.year}</p>
             <p>Seller: ${bikes.seller}</p>
             <p>Price: ${bikes.price}kr</p>
-              </a>
+              </a>        
         </div>
 
     `;
@@ -54,4 +54,14 @@ const loadNew = async () => {
     }
 
     typeDesc.innerHTML = `ALL NEW BIKES`;
+}
+
+const selSort = document.querySelector("#selSort");
+
+const sortBikes = async () => {
+    secNewBikes.innerHTML = ``; // Sletter innholdet i secDyr.
+    const answer = await bikes.orderBy("price", selSort.value).get();
+    for(const bikes of answer.docs){
+        lagHTML(bikes.id, bikes.data());
+    }
 }
